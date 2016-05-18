@@ -3,9 +3,9 @@ using System.Collections;
 
 public class AccelerometerTest : MonoBehaviour {
     //RGB
-    float red = 0f;
-    float blue = 0f;
-    float green = 0f;
+    float red = 0.5f;
+    float blue = 0.5f;
+    float green = 0.5f;
 	public float speed = 3f;
 	public Color altColor = Color.white;
 	public Renderer rend;
@@ -35,13 +35,13 @@ public class AccelerometerTest : MonoBehaviour {
         //red
         if (Input.acceleration.x > 0)
         {
-				altColor.r += 1f;
+			altColor.r += 0.01f;
 			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        if (Input.acceleration.x < 0)
+        if (Input.acceleration.x < 0 && altColor.r > 0.3f)
         {
-			altColor.r -= 1f;
+			altColor.r -= 0.01f;
 			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
@@ -49,13 +49,13 @@ public class AccelerometerTest : MonoBehaviour {
         //blue
         if (Input.acceleration.y > 0)
         {
-			altColor.b += 1f;
+			altColor.b += 0.01f;
 			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        if (Input.acceleration.y < 0)
+        if (Input.acceleration.y < 0 && altColor.b > 0.3f)
         {
-			altColor.b -= 1f;
+			altColor.b -= 0.01f;
 			gameObject.GetComponent<Renderer> ().material.color = altColor;
 		}
        
@@ -63,13 +63,13 @@ public class AccelerometerTest : MonoBehaviour {
         //green
 		if (Input.acceleration.z > 0)
         {
-			altColor.g += 1f;
+			altColor.g += 0.01f;
 			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        if (Input.acceleration.z < 0)
+        if (Input.acceleration.z < 0 && altColor.g > 0.3f)
         {
-			altColor.g -= 1f;
+			altColor.g -= 0.01f;
 			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
         
