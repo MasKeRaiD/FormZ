@@ -3,8 +3,8 @@ using System.Collections;
 
 public class TouchTest : MonoBehaviour
 {
-    public float perspectiveZoomSpeed = 0.1f;        // The rate of change of the field of view in perspective mode.
-    public float orthoZoomSpeed = 0.1f;        // The rate of change of the orthographic size in orthographic mode.
+    public float perspectiveZoomSpeed = 0.0001f;        // The rate of change of the field of view in perspective mode.
+    public float orthoZoomSpeed = 0.0001f;        // The rate of change of the orthographic size in orthographic mode.
 
 
     void Update()
@@ -42,7 +42,7 @@ public class TouchTest : MonoBehaviour
                 GetComponent<Camera>().fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
 
                 // Clamp the field of view to make sure it's between 0 and 180.
-                GetComponent<Camera>().fieldOfView = Mathf.Clamp(GetComponent<Camera>().fieldOfView, 0.1f, 179.9f);
+                GetComponent<Camera>().fieldOfView = Mathf.Clamp(GetComponent<Camera>().fieldOfView, 18f, 80f);
             }
         }
     }

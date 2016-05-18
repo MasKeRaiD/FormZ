@@ -3,15 +3,24 @@ using System.Collections;
 
 public class AccelerometerTest : MonoBehaviour {
     //RGB
-    float red = 0.5f;
-    float blue = 0.5f;
-    float green = 0.5f;
+    float red = 0f;
+    float blue = 0f;
+    float green = 0f;
+	public float speed = 3f;
+	public Color altColor = Color.white;
+	public Renderer rend;
 
-    
-    
+
+	void Example() {
+		altColor.g = 1f;
+		altColor.r = 0f;
+		altColor.b = 0f;
+		altColor.a = 0f;
+	}
     // Use this for initialization
     void Start () {
-        
+		Example ();
+		gameObject.GetComponent<Renderer> ().material.color = altColor;
     }
 
     // Update is called once per frame
@@ -22,42 +31,49 @@ public class AccelerometerTest : MonoBehaviour {
             Application.Quit();
         //do something
 
+
         //red
-        if (Input.acceleration[0] > 0)
+        if (Input.acceleration.x > 0)
         {
-            this.red += 0.01f;
+				altColor.r += 1f;
+			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        if (Input.acceleration[0] < 0)
+        if (Input.acceleration.x < 0)
         {
-            this.red -= 0.01f;
+			altColor.r -= 1f;
+			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        /*
+       
         //blue
-        if (Input.acceleration[1] > 0)
+        if (Input.acceleration.y > 0)
         {
-            this.blue += 0.01f;
+			altColor.b += 1f;
+			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        if (Input.acceleration[1] < 0)
+        if (Input.acceleration.y < 0)
         {
-            this.blue -= 0.01f;
-        }
+			altColor.b -= 1f;
+			gameObject.GetComponent<Renderer> ().material.color = altColor;
+		}
        
        
         //green
-        if (Input.acceleration[2] > 0)
+		if (Input.acceleration.z > 0)
         {
-            this.green += 0.01f;
+			altColor.g += 1f;
+			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
 
-        if (Input.acceleration[2] < 0)
+        if (Input.acceleration.z < 0)
         {
-            this.green -= 0.01f;
+			altColor.g -= 1f;
+			gameObject.GetComponent<Renderer> ().material.color = altColor;
         }
-        */
-        gameObject.GetComponent<Renderer>().material.color = new Color(this.red, this.green, this.blue);
+        
+
     }
 }
 

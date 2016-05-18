@@ -49,6 +49,8 @@
      <Compile Include="Assets\GyroController.cs" />
      <Compile Include="Assets\MenuScript.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\TouchRotation.cs" />
+     <Compile Include="Assets\TouchTest.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
